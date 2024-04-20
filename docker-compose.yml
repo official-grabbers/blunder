@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-  # Django Service
   django:
     build: .
     container_name: django-app
@@ -14,26 +13,19 @@ services:
       - ./:/app
     ports:
       - "8000:8000"
-    depends_on:
-      - postgres
 
-  postgres:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: postgres_db
-    ports:
-      - "5432:5432"
-    volumes:
-      - /var/lib/postgresql/data:/var/lib/postgresql/data
-  
   pgadmin:
     image: dpage/pgadmin4:latest
+    env_file:
+      - .env
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_DEFAULT_EMAIL: root@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root@1234
+      PGADMIN_LISTEN_PORT: 5050
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: 'False'
+      PGADMIN_ENABLE_PASSWORD_RECOVERY: 'True'
+    volumes:
+      - ./docker/pgadmin/servers.json:/pgadmin4/servers.json
     ports:
       - "5050:5050"
-    depends_on:
-      - postgres
