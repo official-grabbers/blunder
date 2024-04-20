@@ -1,0 +1,4 @@
+ignore-words-list = varible, foobar
+
+check-filenames = False
+check-hidden = True
