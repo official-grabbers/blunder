@@ -20,6 +20,8 @@ Initial Description: Blunder is a web application that allows users to aggregate
     - posts with music
     - post with video
 
+    *Progress*: ~~GET request for any user profile is done [API](https://www.instagram.com/api/v1/users/web_profile_info/?username=recessioncash), retrieval of media is under progress for now.~~
+
 1. Integrate API's in Django app and make them work, test with test instagram accounts.
 
 1. ~~Integrate PgAdmin with Postgres Database.~~
