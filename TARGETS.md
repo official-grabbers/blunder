@@ -6,7 +6,14 @@ Initial Description: Blunder is a web application that allows users to aggregate
 
 1. ~~Initial Django setup with Docker.~~
 
-1. Found API's which helps to download from Instagram :
+1. ~~Found API's which helps to upload from Instagram :~~
+    - ~~single post~~
+    - ~~multiple posts~~
+    - ~~video's or shorts~~
+    - ~~posts with music~~
+    - ~~post with video~~
+
+1. Found API's which helps to download third user data from Instagram :
     - single post
     - multiple posts
     - video's or shorts
@@ -15,7 +22,7 @@ Initial Description: Blunder is a web application that allows users to aggregate
 
 1. Integrate API's in Django app and make them work, test with test instagram accounts.
 
-1. Integrate PgAdmin with Postgres Database.
+1. ~~Integrate PgAdmin with Postgres Database.~~
 
 1. Remove Hard Coded things
 
