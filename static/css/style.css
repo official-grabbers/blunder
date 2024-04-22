@@ -1,0 +1,9 @@
+body {
+    -ms-overflow-style: none;      /* IE and Edge */
+    overflow-y: scroll;            /* Always show scroll */
+}
+
+/* Firefox specific */
+body::-webkit-scrollbar {
+    display: none;                 /* Safari and Chrome */
+}

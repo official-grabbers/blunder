@@ -8,6 +8,10 @@ class ExampleView(TemplateView):
     template_name = "example.html"
 
 
+class LoginView(TemplateView):
+    template_name = "login.html"
+
+
 def download_instagram_post(request):
     url = request.GET.get('url')
     if not url:
