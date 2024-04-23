@@ -43,3 +43,7 @@ Initial Description: Blunder is a web application that allows users to aggregate
 1. Bug Fixes
 
 1. Integration AI in Project to automatically select Target Instagram Account instead of selecting them
+
+1. delete data.json
+
+1. update profile_picture to be saved in images folder inside static folder and must be unique.

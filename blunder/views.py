@@ -1,11 +1,16 @@
 from django.views.generic import TemplateView
 import instaloader
 from django.http import JsonResponse
+from blunder.helpers import ProfilePageHelper
 
 
 # Create your views here.
 class ExampleView(TemplateView):
     template_name = "example.html"
+
+
+class ProfileView(ProfilePageHelper):
+    pass
 
 
 class LoginView(TemplateView):

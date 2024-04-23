@@ -1,9 +1,28 @@
 body {
-    -ms-overflow-style: none;      /* IE and Edge */
-    overflow-y: scroll;            /* Always show scroll */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: scroll; /* Always show scroll */
 }
 
 /* Firefox specific */
 body::-webkit-scrollbar {
-    display: none;                 /* Safari and Chrome */
+    display: none; /* Safari and Chrome */
+}
+
+.pb-full {
+    padding-bottom: 100%;
+}
+
+.bioclass {
+    color: #8e8e8e;
+}
+
+/* hide search icon on search focus */
+.search-bar:focus + .fa-search {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .post:hover .overlay {
+        display: block;
+    }
 }
