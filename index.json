@@ -1,0 +1,199 @@
+[
+    {
+        "node": {
+            "__typename": "GraphSidecar",
+            "id": "3351049655043162592",
+            "shortcode": "C6BUegZiwHg",
+            "dimensions": {
+                "height": 1350,
+                "width": 1080
+            },
+            "display_url": "https://instagram.fluh1-4.fna.fbcdn.net/v/t51.29350-15/440202823_967739184428446_6953318384559353903_n.heic?se=7&stp=dst-jpg_e35&_nc_ht=instagram.fluh1-4.fna.fbcdn.net&_nc_cat=110&_nc_ohc=S7EA89yZjEAAb53dJZk&edm=AOQ1c0wBAAAA&ccb=7-5&ig_cache_key=MzM1MTA0OTY0Mjg0NTkzMDc2Mw%3D%3D.2-ccb7-5&oh=00_AfCdukks-1qcQj10DYlHfaKHCLfcAXhG4hZ2VyhOcrndsA&oe=662DBBD2&_nc_sid=8b3546",
+            "edge_media_to_tagged_user": {
+                "edges": []
+            },
+            "fact_check_overall_rating": null,
+            "fact_check_information": null,
+            "gating_info": null,
+            "sharing_friction_info": {
+                "should_have_sharing_friction": false,
+                "bloks_app_url": null
+            },
+            "media_overlay_info": null,
+            "media_preview": null,
+            "owner": {
+                "id": "38559627199",
+                "username": "recessioncash"
+            },
+            "is_video": false,
+            "has_upcoming_event": false,
+            "accessibility_caption": "Photo by Recession | Entrepreneurship | Money on April 21, 2024. May be a graphic of poster, magazine and text that says '@ARTIFICIALZONE CHAT CHATGPT WAS ASKED TO BE A CEO AND BUILD THE MOST PROFITABLE COMPANY. HERE'S WHAT IT DID (SWIPE LEFT TO WATCH)'.",
+            "edge_media_to_caption": {
+                "edges": [
+                    {
+                        "node": {
+                            "text": "Your Thoughts?🙌\n\nCredits: Unknown\n\nFollow: @recessioncash for more!"
+                        }
+                    }
+                ]
+            },
+            "edge_media_to_comment": {
+                "count": 12
+            },
+            "comments_disabled": false,
+            "taken_at_timestamp": 1713696270,
+            "edge_liked_by": {
+                "count": 171
+            },
+            "edge_media_preview_like": {
+                "count": -1
+            },
+            "location": null,
+            "nft_asset_info": null,
+            "thumbnail_src": "https://instagram.fluh1-4.fna.fbcdn.net/v/t51.29350-15/440202823_967739184428446_6953318384559353903_n.heic?stp=c0.135.1079.1079a_dst-jpg_e35_s640x640_sh0.08&_nc_ht=instagram.fluh1-4.fna.fbcdn.net&_nc_cat=110&_nc_ohc=S7EA89yZjEAAb53dJZk&edm=AOQ1c0wBAAAA&ccb=7-5&ig_cache_key=MzM1MTA0OTY0Mjg0NTkzMDc2Mw%3D%3D.2.c-ccb7-5&oh=00_AfCwuquXB6l4JV86Te4igCuz0dJdz-OgWmahk3ROrf8-Cw&oe=662DBBD2&_nc_sid=8b3546",
+            "thumbnail_resources": [
+                {
+                    "src": "https://instagram.fluh1-4.fna.fbcdn.net/v/t51.29350-15/440202823_967739184428446_6953318384559353903_n.heic?stp=c0.135.1079.1079a_dst-jpg_e35_s150x150&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDc5eDEzNDkuc2RyLmYyOTM1MCJ9&_nc_ht=instagram.fluh1-4.fna.fbcdn.net&_nc_cat=110&_nc_ohc=S7EA89yZjEAAb53dJZk&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfCaZ8R80CvWO10LYR0nC9PGiP6fp5GxVmZwgQAc2JSnFA&oe=662DBBD2&_nc_sid=8b3546",
+                    "config_width": 150,
+                    "config_height": 150
+                },
+                {
+                    "src": "https://instagram.fluh1-4.fna.fbcdn.net/v/t51.29350-15/440202823_967739184428446_6953318384559353903_n.heic?stp=c0.135.1079.1079a_dst-jpg_e35_s240x240&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDc5eDEzNDkuc2RyLmYyOTM1MCJ9&_nc_ht=instagram.fluh1-4.fna.fbcdn.net&_nc_cat=110&_nc_ohc=S7EA89yZjEAAb53dJZk&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfCOATnXbrsoxFuSk5ZZOnZ77tOg8iFcPPMN5Q6Ukr-UcQ&oe=662DBBD2&_nc_sid=8b3546",
+                    "config_width": 240,
+                    "config_height": 240
+                },
+                {
+                    "src": "https://instagram.fluh1-4.fna.fbcdn.net/v/t51.29350-15/440202823_967739184428446_6953318384559353903_n.heic?stp=c0.135.1079.1079a_dst-jpg_e35_s320x320&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDc5eDEzNDkuc2RyLmYyOTM1MCJ9&_nc_ht=instagram.fluh1-4.fna.fbcdn.net&_nc_cat=110&_nc_ohc=S7EA89yZjEAAb53dJZk&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfAsPDoUb0yuP25Q9q7Ba9HXqJr8HboBKaD0otEFnE1L9g&oe=662DBBD2&_nc_sid=8b3546",
+                    "config_width": 320,
+                    "config_height": 320
+                },
+                {
+                    "src": "https://instagram.fluh1-4.fna.fbcdn.net/v/t51.29350-15/440202823_967739184428446_6953318384559353903_n.heic?stp=c0.135.1079.1079a_dst-jpg_e35_s480x480&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDc5eDEzNDkuc2RyLmYyOTM1MCJ9&_nc_ht=instagram.fluh1-4.fna.fbcdn.net&_nc_cat=110&_nc_ohc=S7EA89yZjEAAb53dJZk&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfC5qV9SSHlNsdNaKP6lwQO7fpZ6v1z5ZG1opAcF7p4tRA&oe=662DBBD2&_nc_sid=8b3546",
+                    "config_width": 480,
+                    "config_height": 480
+                },
+                {
+                    "src": "https://instagram.fluh1-4.fna.fbcdn.net/v/t51.29350-15/440202823_967739184428446_6953318384559353903_n.heic?stp=c0.135.1079.1079a_dst-jpg_e35_s640x640_sh0.08&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMDc5eDEzNDkuc2RyLmYyOTM1MCJ9&_nc_ht=instagram.fluh1-4.fna.fbcdn.net&_nc_cat=110&_nc_ohc=S7EA89yZjEAAb53dJZk&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfCwuquXB6l4JV86Te4igCuz0dJdz-OgWmahk3ROrf8-Cw&oe=662DBBD2&_nc_sid=8b3546",
+                    "config_width": 640,
+                    "config_height": 640
+                }
+            ],
+            "coauthor_producers": [],
+            "pinned_for_users": [
+                {
+                    "id": "38559627199",
+                    "is_verified": false,
+                    "profile_pic_url": "https://instagram.fluh1-1.fna.fbcdn.net/v/t51.2885-19/293179146_1474495059669163_3466193075125912030_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.fluh1-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=ZtHod1wc4QAAb4gvxsz&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfCos2VqjyuJeUJweWVr_5ezcG9E8LfH7AkhwZ6dvZUN4A&oe=662DD84C&_nc_sid=8b3546",
+                    "username": "recessioncash"
+                }
+            ],
+            "viewer_can_reshare": true,
+            "edge_sidecar_to_children": {
+                "edges": [
+                    {
+                        "node": {
+                            "__typename": "GraphImage",
+                            "id": "3351049642845930763",
+                            "shortcode": "C6BUeVCiAUL",
+                            "dimensions": {
+                                "height": 1350,
+                                "width": 1080
+                            },
+                            "display_url": "https://instagram.fluh1-4.fna.fbcdn.net/v/t51.29350-15/440202823_967739184428446_6953318384559353903_n.heic?se=7&stp=dst-jpg_e35&_nc_ht=instagram.fluh1-4.fna.fbcdn.net&_nc_cat=110&_nc_ohc=S7EA89yZjEAAb53dJZk&edm=AOQ1c0wBAAAA&ccb=7-5&ig_cache_key=MzM1MTA0OTY0Mjg0NTkzMDc2Mw%3D%3D.2-ccb7-5&oh=00_AfCdukks-1qcQj10DYlHfaKHCLfcAXhG4hZ2VyhOcrndsA&oe=662DBBD2&_nc_sid=8b3546",
+                            "edge_media_to_tagged_user": {
+                                "edges": []
+                            },
+                            "fact_check_overall_rating": null,
+                            "fact_check_information": null,
+                            "gating_info": null,
+                            "sharing_friction_info": {
+                                "should_have_sharing_friction": false,
+                                "bloks_app_url": null
+                            },
+                            "media_overlay_info": null,
+                            "media_preview": "ACIq2vMXdsyN2M4749aU1j3cqnkMVLjacYwRz1+gJ/T0qFLt4iVDB8gY6n5s89O3ODyMcECgDdzSVXin3ZYn2A7cd/xOfwxQ10ifeIGemTQBZoqr9qT1H50UAc4WaVfukg9DQgZCMKcj+uBRbOHXbz8oHBbGTyeKsKO46j7x39cD/EVm5NaDsRCSUDCg4Ge3vTWeV+ucjIGAD9anGW6cDJyC2P8APPNRu6xLuxySTkNnr04+nBNLmew9tTPL/SioScmitQ5n3HRyeWwYAHHY9KtLcsx3fINuOD3wf196pUUrJkl2SZiM/JxngZz6f1qGWcygAgDHpUFFFkAUUUUwP//Z",
+                            "owner": {
+                                "id": "38559627199",
+                                "username": "recessioncash"
+                            },
+                            "is_video": false,
+                            "has_upcoming_event": false,
+                            "accessibility_caption": "Photo by Recession | Entrepreneurship | Money on April 21, 2024. May be a graphic of poster, magazine and text that says '@ARTIFICIALZONE CHAT CHATGPT WAS ASKED TO BE A CEO AND BUILD THE MOST PROFITABLE COMPANY. HERE'S WHAT IT DID (SWIPE LEFT TO WATCH)'."
+                        }
+                    },
+                    {
+                        "node": {
+                            "__typename": "GraphVideo",
+                            "id": "3351049129882592875",
+                            "shortcode": "C6BUW3TiKZr",
+                            "dimensions": {
+                                "height": 937,
+                                "width": 750
+                            },
+                            "display_url": "https://instagram.fluh1-1.fna.fbcdn.net/v/t51.29350-15/440160597_1946456395772215_386569657681352400_n.jpg?stp=dst-jpg_e15&_nc_ht=instagram.fluh1-1.fna.fbcdn.net&_nc_cat=107&_nc_ohc=_HFdlCYyngYAb7ajFrL&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfDJBbzQD5-8TH1JCgg0AQSHNZ8P9cUmuDt8mDrIgOBvuA&oe=6629AEE0&_nc_sid=8b3546",
+                            "edge_media_to_tagged_user": {
+                                "edges": []
+                            },
+                            "fact_check_overall_rating": null,
+                            "fact_check_information": null,
+                            "gating_info": null,
+                            "sharing_friction_info": {
+                                "should_have_sharing_friction": false,
+                                "bloks_app_url": null
+                            },
+                            "media_overlay_info": null,
+                            "media_preview": "ACIq58DijYcZqe3TcrHrx/WpBGVGSMfj1qblpXKew9O9BUqcEYrXkgG4Mq5/HFQ3cRKg9/f0x0ouNxMuiiiqILED4yvrzVyRmZgo6DpTEtl6jOfrUixMp5FS0UpJaNltZCDg8E9vaq99KFXb3YcfnzUm7HTrVaaHzG3HNJIpyVtDMoq39nX1NFWZl+2mG4Pg45GOpqS4cTY25H9ap2v3f8+oqbPI/H+tM538Tfb/ACYzyGPGTT0hK/Nyff8AGgd/w/rQOo+n9KCuZ6rsWvIX0FFPyaKg2P/Z",
+                            "owner": {
+                                "id": "38559627199",
+                                "username": "recessioncash"
+                            },
+                            "is_video": true,
+                            "has_upcoming_event": false,
+                            "accessibility_caption": null,
+                            "dash_info": {
+                                "is_dash_eligible": false,
+                                "video_dash_manifest": null,
+                                "number_of_qualities": 0
+                            },
+                            "has_audio": false,
+                            "tracking_token": "eyJ2ZXJzaW9uIjo1LCJwYXlsb2FkIjp7ImlzX2FuYWx5dGljc190cmFja2VkIjp0cnVlLCJ1dWlkIjoiYTc3ZWIxNTNjZDAyNDM1MzgxMTc4ZWRiZDViNjhlMzEzMzUxMDQ5MTI5ODgyNTkyODc1In0sInNpZ25hdHVyZSI6IiJ9",
+                            "video_url": "https://instagram.fluh1-2.fna.fbcdn.net/v/t50.2886-16/439124520_939050821025214_2828728038852311881_n.mp4?_nc_ht=instagram.fluh1-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=6YdW_ELZKWcAb6vBHUL&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfCGXxDP1BSDiXfV9y36Ufk03CMQdiuKBjuMQKCpKbbrBA&oe=6629D2D8&_nc_sid=8b3546",
+                            "video_view_count": 5595
+                        }
+                    },
+                    {
+                        "node": {
+                            "__typename": "GraphImage",
+                            "id": "3351049642845973440",
+                            "shortcode": "C6BUeVCiKvA",
+                            "dimensions": {
+                                "height": 1351,
+                                "width": 1080
+                            },
+                            "display_url": "https://instagram.fluh1-3.fna.fbcdn.net/v/t51.29350-15/437659886_410496635267941_1291667711802826250_n.heic?se=7&stp=dst-jpg_e35&_nc_ht=instagram.fluh1-3.fna.fbcdn.net&_nc_cat=101&_nc_ohc=vFQ1RVdmNu4Ab6LMs_K&edm=AOQ1c0wBAAAA&ccb=7-5&ig_cache_key=MzM1MTA0OTY0Mjg0NTk3MzQ0MA%3D%3D.2-ccb7-5&oh=00_AfDbjdxuYnXCv5NmCH6PqyPTPe6MEakTaR5eepuVwM2kvw&oe=662DA4A9&_nc_sid=8b3546",
+                            "edge_media_to_tagged_user": {
+                                "edges": []
+                            },
+                            "fact_check_overall_rating": null,
+                            "fact_check_information": null,
+                            "gating_info": null,
+                            "sharing_friction_info": {
+                                "should_have_sharing_friction": false,
+                                "bloks_app_url": null
+                            },
+                            "media_overlay_info": null,
+                            "media_preview": "ACIq5mipViLDP9KXyff9DQBDRU3k+/6GkaLaM5/Q0ARUUUUAWY3VQOcEf59DTjcke/5df++ajRlAAJ/z+Rp28eo/L/61ACG4Pp/L/wCJqOSQuee3Tp/QCl83/PH+FI0m4YP9P8KB28/z/wAiOiiigQUUUUAFFFFABRRRQB//2Q==",
+                            "owner": {
+                                "id": "38559627199",
+                                "username": "recessioncash"
+                            },
+                            "is_video": false,
+                            "has_upcoming_event": false,
+                            "accessibility_caption": "Photo by Recession | Entrepreneurship | Money on April 21, 2024. May be a meme of blueprint, poster and text that says 'I have a blueprint that shows any beginner how they can make at least 10,000 plus per month posting \"simple content\" on Instagram. If you are serious about starting now, just click the link in my bio for free training.'."
+                        }
+                    }
+                ]
+            }
+        }
+    }
+]
