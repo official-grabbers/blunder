@@ -46,4 +46,6 @@ Initial Description: Blunder is a web application that allows users to aggregate
 
 1. delete data.json
 
+1. delete index.json
+
 1. update profile_picture to be saved in images folder inside static folder and must be unique.

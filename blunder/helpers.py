@@ -4,20 +4,17 @@ from blunder.utils import FormatNumbers
 import requests
 import os
 from django.conf import settings
+import json
 
 
 class ProfilePageHelper(TemplateView):
     template_name = "profile.html"
 
-    def download_image(self, url):
-        response = requests.get(url)
-        if response.status_code == 200:
-            image_filename = os.path.join(settings.STATIC_ROOT, 'profile_picture.jpg')
-            with open(image_filename, 'wb') as f:
-                f.write(response.content)
-            return image_filename
-        else:
-            return None
+    def save_edges_to_json(self, edges_data, page_name):
+        JSON_OUTPUT_DIR = os.path.join(settings.BASE_DIR, 'edges_data')  # Define the directory to save JSON files
+        json_filename = os.path.join(JSON_OUTPUT_DIR, f"{page_name}_edges.json")
+        with open(json_filename, 'w') as json_file:
+            json.dump(edges_data, json_file)
 
     def get_context_data(self, **kwargs: Any):
         context = super().get_context_data(**kwargs)
@@ -32,16 +29,17 @@ class ProfilePageHelper(TemplateView):
             data = response.json()
             context['user_name'] = data['data']['user']['username']
             context['profile_picture'] = data['data']['user']['profile_pic_url']
-            profile_picture_url = data['data']['user']['profile_pic_url']
-            profile_picture_path = self.download_image(profile_picture_url)
-            context['profile_picture_path'] = profile_picture_path
             context['edge_follow'] = data['data']['user']['edge_follow']['count']
             context['edge_followed_by'] = FormatNumbers.format_number(data['data']['user']['edge_followed_by']['count'])
             context['media_count'] = data['data']['user']['edge_owner_to_timeline_media']['count']
+            context['edges'] = data['data']['user']['edge_owner_to_timeline_media']['edges']
             context['full_name'] = data['data']['user']['full_name']
             context['category_name'] = data['data']['user']['category_name']
             context['biography'] = data['data']['user']['biography']
             context['external_url'] = data['data']['user']['external_url']
+
+            # Save edges data to a JSON file
+            self.save_edges_to_json(data['data']['user']['edge_owner_to_timeline_media'], page_name)
         else:
             error_message = response.json().get('message') if response.headers.get('content-type') == 'application/json' else response.text
             data = error_message

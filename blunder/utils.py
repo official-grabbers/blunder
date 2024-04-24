@@ -4,8 +4,8 @@ class FormatNumbers:
         if value < 1000:
             return str(value)
         elif value < 1000000:
-            return f"{value // 1000}k"
+            return f"{value // 1000}K"
         elif value < 1000000000:
-            return f"{value // 1000000}m"
+            return f"{value // 1000000}M"
         else:
-            return f"{value // 1000000000}b"
+            return f"{value // 1000000000}B"
