@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 import instaloader
 from django.http import JsonResponse
-from blunder.helpers import ProfilePageHelper
+from blunder.helpers import ProfilePageHelper, TestAPIHelper
 
 
 # Create your views here.
@@ -9,7 +9,15 @@ class ExampleView(TemplateView):
     template_name = "example.html"
 
 
+class LandingView(TemplateView):
+    template_name = "index.html"
+
+
 class ProfileView(ProfilePageHelper):
+    pass
+
+
+class TestAPI(TestAPIHelper):
     pass
 
 

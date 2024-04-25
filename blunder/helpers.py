@@ -5,6 +5,8 @@ import requests
 import os
 from django.conf import settings
 import json
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 
 class ProfilePageHelper(TemplateView):
@@ -46,3 +48,38 @@ class ProfilePageHelper(TemplateView):
 
         context['page_name'] = page_name
         return context
+
+
+class TestAPIHelper(APIView):
+
+    def get(self, request, *args, **kwargs):
+        page_name = kwargs.get('page_name')
+
+        api_url = f"https://www.instagram.com/api/v1/users/web_profile_info/?username={page_name}"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 105.0.0.11.118 (iPhone11,8; iOS 12_3_1; en_US; en-US; scale=2.00; 828x1792; 165586599)',
+        }
+        response = requests.get(api_url, headers=headers)
+
+        if response.status_code == 200:
+            data = response.json()
+            user_data = data.get('data', {}).get('user', {})
+            context = {
+                'user_name': user_data.get('username'),
+                'profile_picture': user_data.get('profile_pic_url'),
+                'edge_follow': user_data.get('edge_follow', {}).get('count'),
+                'edge_followed_by': FormatNumbers.format_number(user_data.get('edge_followed_by', {}).get('count')),
+                'media_count': user_data.get('edge_owner_to_timeline_media', {}).get('count'),
+                'edges': user_data.get('edge_owner_to_timeline_media', {}).get('edges'),
+                'full_name': user_data.get('full_name'),
+                'category_name': user_data.get('category_name'),
+                'biography': user_data.get('biography'),
+                'external_url': user_data.get('external_url'),
+                'page_name': page_name,
+                'page_info': user_data.get('edge_owner_to_timeline_media', {}).get('page_info'),
+            }
+
+            return Response(context)
+        else:
+            error_message = response.json().get('message') if response.headers.get('content-type') == 'application/json' else response.text
+            return Response({'error': error_message}, status=response.status_code)

@@ -16,7 +16,6 @@
         <div class="lg:w-8/12 lg:mx-auto mb-8">
             <header class="flex flex-wrap items-center p-4 md:py-8">
                 <div class="md:w-3/12 md:ml-16">
-                    <!-- profile image -->
                     <img crossorigin="anonymous" class="w-20 h-20 md:w-40 md:h-40 object-cover rounded-full
                      border-2 border-pink-600 p-1" src="{{profile_picture}}" alt="profile">
                 </div>
@@ -49,7 +48,9 @@
                     <!-- user meta form medium screens -->
                     <div class="hidden md:block">
                         <h1 class="font-semibold">{{full_name}}</h1>
-                        <span class="bioclass">{{category_name}}</span>
+                        {% if category_name %}
+                            <span class="bioclass">{{category_name}}</span>
+                        {% endif %}
                         <p>{{biography|linebreaksbr}}</p>
                         <span><strong>{{external_url}}</strong></span>
                     </div>
