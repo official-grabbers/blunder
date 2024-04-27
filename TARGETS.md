@@ -14,6 +14,8 @@ Initial Description: Blunder is a web application that allows users to aggregate
     - ~~post with video~~
 
 1. Found API's which helps to download third user data from Instagram :
+    - ~~Found and integrate API to show third user data~~
+    - ~~Get users posts and posts data~~
     - single post
     - multiple posts
     - video's or shorts
@@ -44,8 +46,8 @@ Initial Description: Blunder is a web application that allows users to aggregate
 
 1. Integration AI in Project to automatically select Target Instagram Account instead of selecting them
 
-1. delete data.json
+1. ~~delete data.json~~
 
-1. delete index.json
+1. ~~delete index.json~~
 
-1. update profile_picture to be saved in images folder inside static folder and must be unique.
+1. ~~***Deprecated***: update profile_picture to be saved in images folder inside static folder and must be unique.~~

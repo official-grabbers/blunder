@@ -25,7 +25,9 @@
             <div class="lg:w-8/12 lg:mx-auto mb-8">
                 <header class="flex flex-wrap items-center p-4 md:py-8">
                     <div class="md:w-3/12 md:ml-16">
-                        <img crossorigin="anonymous" class="w-20 h-20 md:w-40 md:h-40 object-cover rounded-full border-2 border-pink-600 p-1" :src="data.profile_picture" alt="profile">
+                        <img crossorigin="anonymous"
+                            class="w-20 h-20 md:w-40 md:h-40 object-cover rounded-full border-2 border-pink-600 p-1"
+                            :src="data.profile_picture" alt="profile">
                     </div>
                     <!-- profile meta -->
                     <div class="w-8/12 md:w-7/12 ml-4">
@@ -132,13 +134,14 @@
                                         <span class="p-2 flex justify-center items-end">
                                             <img src="{% static 'images/icons/like.svg' %}" width="23px" alt="Logo"
                                                 style="margin-right: 5px;">
-                                            ${edge.node.edge_liked_by.count|format_number}
+                                            <!-- ${edge.node.edge_liked_by.count|format_number} -->
+                                            ${console.log(edge.node)}
                                         </span>
 
                                         <span class="p-2 flex justify-center items-end">
                                             <img src="{% static 'images/icons/comment.svg' %}" width="18px" alt="Logo"
                                                 style="margin-right: 5px;">
-                                            ${edge.node.edge_media_to_comment.count|format_number}
+                                            <!-- ${edge.node.edge_media_to_comment.count|format_number} -->
                                         </span>
                                     </div>
                                 </div>
@@ -162,11 +165,14 @@
             return (value / 1000000000).toFixed(1) + 'B';
         }
     });
+    Vue.config.devtools = true
     new Vue({
         el: '#app',
         delimiters: ['${', '}'],
         data: {
-            data: null,
+            data: {
+                edges: []
+            },
             loading: false,
         },
         created() {
@@ -179,7 +185,7 @@
         methods: {
             fetchData() {
                 this.loading = true;
-                const url = `http://localhost:8000/api/kiddaan`;
+                const url = `http://localhost:8000/api/fukra_admin`;
                 fetch(url)
                     .then(response => response.json())
                     .then(data => {
@@ -191,10 +197,25 @@
                         this.loading = false;
                     });
             },
+            fetchPaginatedData() {
+                this.loading = true;
+                const url = `http://localhost:8000/pagination?document_id=17991233890457762&user_id=${this?.data?.id}&end_cursor=${this?.data?.page_info?.end_cursor}`;
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        let upcoming_edges = data?.data?.data?.user?.edge_owner_to_timeline_media?.edges
+                        this.data.edges = this.data.edges.concat(upcoming_edges);
+                        this.data.page_info = data?.data?.data?.user?.edge_owner_to_timeline_media?.page_info
+                        this.loading = false;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        this.loading = false;
+                    });
+            },
             handleScroll() {
                 if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 && !this.loading) {
-                    console.log(this.data.page_info)
-                    this.fetchData();
+                    this.fetchPaginatedData();
                 }
             }
         }
