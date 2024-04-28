@@ -1,7 +1,54 @@
 from blunder.utils import FormatNumbers
-import requests
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.views.generic import TemplateView, View
+from django.http import HttpResponseRedirect
+import requests
+import os
+
+
+class InstagramAuthViewHelper(View):
+    def get(self, request, *args, **kwargs):
+        instagram_auth_url = "https://api.instagram.com/oauth/authorize"
+
+        client_id = os.environ.get('CLIENT_ID')
+        redirect_uri = os.environ.get('REDIRECT_URL')
+        scope = "user_profile,user_media"
+        response_type = "code"
+
+        authorization_url = f"{instagram_auth_url}?client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}&response_type={response_type}"
+        return HttpResponseRedirect(authorization_url)
+
+
+class ExampleViewHandler(TemplateView):
+    template_name = "example.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        auth_code = self.request.GET.get('code')
+        context['auth_code'] = auth_code
+
+        if auth_code:
+            instagram_endpoint = "https://api.instagram.com/oauth/access_token"
+
+            # Define your app's credentials and other required parameters
+            client_id = os.environ.get('CLIENT_ID')
+            client_secret = os.environ.get('CLIENT_SECRET')
+            redirect_uri = os.environ.get('REDIRECT_URL')
+            grant_type = "authorization_code"
+
+            # Prepare the data to be sent in the POST request
+            data = {
+                "client_id": client_id,
+                "client_secret": client_secret,
+                "grant_type": grant_type,
+                "redirect_uri": redirect_uri,
+                "code": auth_code
+            }
+
+            response = requests.post(instagram_endpoint, data=data)
+            context['instagram_response'] = response.json()
+        return context
 
 
 class TestAPIHelper(APIView):

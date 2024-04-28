@@ -1,10 +1,14 @@
 from django.views.generic import TemplateView
-from blunder.helpers import TestAPIHelper, PaginationAPIHandler
+from blunder.helpers import TestAPIHelper, PaginationAPIHandler, ExampleViewHandler, InstagramAuthViewHelper
 
 
 # Create your views here.
-class ExampleView(TemplateView):
-    template_name = "example.html"
+class ExampleView(ExampleViewHandler):
+    pass
+
+
+class InstagramAuthView(InstagramAuthViewHelper):
+    pass
 
 
 class LandingView(TemplateView):
