@@ -1,225 +1,271 @@
 {% load static %}
-{% load custom_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${ data?.user_name }</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Example Page</title>
+    <script src="{{tailwind}}"></script>
     <script src="{% static 'js/tailwind.config.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <style scoped>
-        .my-text-with-breaks {
-            white-space: pre-wrap;
-        }
-    </style>
 </head>
 
-<body>
+<body class="font-custom">
     <div id="app">
-        <div v-if="loading" class="loading">Loading...</div>
-        <main class="bg-gray-100 bg-opacity-25">
-            <div class="lg:w-8/12 lg:mx-auto mb-8">
-                <header class="flex flex-wrap items-center p-4 md:py-8">
-                    <div class="md:w-3/12 md:ml-16">
-                        <img crossorigin="anonymous"
-                            class="w-20 h-20 md:w-40 md:h-40 object-cover rounded-full border-2 border-pink-600 p-1"
-                            :src="data.profile_picture" alt="profile">
-                    </div>
-                    <!-- profile meta -->
-                    <div class="w-8/12 md:w-7/12 ml-4">
-                        <div class="md:flex md:flex-wrap md:items-center mb-4">
-                            <h2 class="text-3xl inline-block font-light md:mr-2 mb-2 sm:mb-0">
-                                ${ data?.user_name }
-                            </h2>
-                        </div>
-                        <!-- post, following, followers list for medium screens -->
-                        <ul class="hidden md:flex space-x-8 mb-4">
-                            <li>
-                                <span class="font-semibold">${ data?.media_count }</span>
-                                posts
-                            </li>
-                            <li>
-                                <span class="font-semibold">${ data?.edge_followed_by }</span>
-                                followers
-                            </li>
-                            <li>
-                                <span class="font-semibold">${ data?.edge_follow }</span>
-                                following
-                            </li>
-                        </ul>
-                        <!-- user meta form medium screens -->
-                        <div class="hidden md:block">
-                            <h1 class="font-semibold">${data?.full_name}</h1>
-                            <span v-if="data?.category_name" class="bioclass">${data?.category_name}</span>
-                            <p class="my-text-with-breaks">${data?.biography}</p>
-                            <span><strong>${data?.external_url}</strong></span>
-                        </div>
+        <!-- Section: Design Block -->
+        <section class="mb-10 overflow-hidden">
+            <!-- Navbar -->
+            {% include 'layouts/navbar.html' %}
 
-                    </div>
-
-                    <!-- user meta form small screens -->
-                    <div class="md:hidden text-sm my-2">
-                        <h1 class="font-semibold">${data?.full_name}</h1>
-                        <span v-if="data?.category_name" class="bioclass">${data?.category_name}</span>
-                        <p class="my-text-with-breaks">${data?.biography}</p>
-                        <span><strong>${data?.external_url}</strong></span>
-                    </div>
-
-                </header>
-
-                <!-- posts -->
-                <div class="px-px md:px-3">
-
-                    <!-- user following for mobile only -->
-                    <ul class="flex md:hidden justify-around space-x-8 border-t
-                    text-center p-2 text-gray-600 leading-snug text-sm">
-                        <li>
-                            <span class="font-semibold text-gray-800 block">${ data?.media_count }</span>
-                            posts
-                        </li>
-
-                        <li>
-                            <span class="font-semibold text-gray-800 block">${ data?.edge_followed_by }</span>
-                            followers
-                        </li>
-                        <li>
-                            <span class="font-semibold text-gray-800 block">${ data?.edge_follow }</span>
-                            following
-                        </li>
-                    </ul>
-                    <br>
-                    <br>
-                    <!-- insta freatures -->
-                    <ul class="flex items-center justify-around md:justify-center space-x-12
-                        uppercase tracking-widest font-semibold text-xs text-gray-600
-                        border-t">
-                        <!-- posts tab is active -->
-                        <li class="md:border-t md:border-gray-700 md:-mt-px md:text-gray-700">
-                            <a class="inline-block p-3" href="#">
-                                <i class="fas fa-th-large text-xl md:text-xs"></i>
-                                <span class="hidden md:inline">post</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="inline-block p-3" href="#">
-                                <i class="far fa-square text-xl md:text-xs"></i>
-                                <span class="hidden md:inline">igtv</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="inline-block p-3" href="#">
-                                <i class="fas fa-user border border-gray-500
-                                 px-1 pt-1 rounded text-xl md:text-xs"></i>
-                                <span class="hidden md:inline">tagged</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- flexbox grid -->
-                    <div class="flex flex-wrap -mx-px md:-mx-3">
-                        <!-- column -->
-                        <div v-for="edge in data?.edges" :key="edge?.id" class="w-1/3 p-px md:px-3">
-                            <article class="post bg-gray-100 text-white relative pb-full md:mb-6">
-                                <img crossorigin="anonymous" class="w-full h-full absolute left-0 top-0 object-cover"
-                                    :src="edge?.node?.thumbnail_src" alt="image">
-                                <img class=" absolute right-0 top-0 m-1" src="{% static 'images/icons/stack.svg' %}"
-                                    width="17px" height="10px" alt="Logo">
-                                <div class="overlay bg-gray-800 bg-opacity-25 w-full h-full absolute
-                                        left-0 top-0 hidden">
-                                    <div class="flex justify-center items-center
-                                            space-x-4 h-full">
-                                        <span class="p-2 flex justify-center items-end">
-                                            <img src="{% static 'images/icons/like.svg' %}" width="23px" alt="Logo"
-                                                style="margin-right: 5px;">
-                                            <!-- ${edge.node.edge_liked_by.count|format_number} -->
-                                            ${console.log(edge.node)}
-                                        </span>
-
-                                        <span class="p-2 flex justify-center items-end">
-                                            <img src="{% static 'images/icons/comment.svg' %}" width="18px" alt="Logo"
-                                                style="margin-right: 5px;">
-                                            <!-- ${edge.node.edge_media_to_comment.count|format_number} -->
-                                        </span>
-                                    </div>
-                                </div>
-                            </article>
+            <!-- Background image -->
+            <div
+                class="relative overflow-hidden bg-cover bg-no-repeat bg-[50%] h-[500px] bg-[url('{{banner}}')]">
+                <div
+                    class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed bg-[hsla(0,0%,0%,0.75)]">
+                    <div class="flex h-full items-center justify-center">
+                        <div class="px-6 text-center text-white md:px-12">
+                            <h1 class="mt-6 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
+                                The best offer on the market <br /><span>for your business</span>
+                            </h1>
+                            <a class="mb-2 inline-block rounded-full border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 md:mr-2 md:mb-0"
+                                data-te-ripple-init data-te-ripple-color="light" href="#!" role="button">Get started</a>
+                            <a class="inline-block rounded-full px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:bg-neutral-500 hover:bg-opacity-20 hover:text-neutral-200 focus:text-neutral-200 focus:outline-none focus:ring-0 active:text-neutral-300"
+                                data-te-ripple-init data-te-ripple-color="light" href="#!" role="button">Learn more</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+
+            <div
+                class="-mt-2.5 text-white dark:text-neutral-800 md:-mt-4 lg:-mt-6 xl:-mt-10 h-[50px] scale-[2] origin-[top_center]">
+                <svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M 0 48 L 1437.5 48 L 2880 48 L 2880 0 L 2160 0 C 1453.324 60.118 726.013 4.51 720 0 L 0 0 L 0 48 Z"
+                        fill="currentColor"></path>
+                </svg>
+            </div>
+            <!-- Background image -->
+        </section>
+        <!-- Section: Design Block -->
+        <!-- Container for demo purpose -->
+        <div class="container my-10 mx-auto md:px-6">
+            <h2 class="mb-16 text-center text-6xl font-bold">Blunder</h2>
+            <!-- Section: Design Block -->
+            <section class="mb-32">
+                <!-- Jumbotron -->
+                <div class="container mx-auto text-center lg:text-left xl:px-32">
+                    <div class="flex grid items-center lg:grid-cols-2">
+                        <div class="mb-12 lg:mb-0">
+                            <div
+                                class="relative z-[1] block rounded-lg bg-[hsla(0,0%,100%,0.55)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] backdrop-blur-[30px] dark:bg-[hsla(0,0%,5%,0.55)] dark:shadow-black/20 md:px-12 lg:-mr-14">
+                                <h2 class="mb-8 text-3xl font-bold">Enjoy the moment</h2>
+                                <p class="mb-8 pb-2 text-neutral-500 dark:text-neutral-300 lg:pb-0">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                                    soluta corporis voluptate ab error quam dolores doloremque,
+                                    quae consectetur.
+                                </p>
+
+                                <div
+                                    class="mx-auto mb-8 flex flex-col md:flex-row md:justify-around lg:justify-between">
+                                    <p class="mx-auto mb-4 flex items-center md:mx-0 md:mb-2 lg:mb-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke="currentColor" class="mr-2 h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Best team
+                                    </p>
+
+                                    <p class="mx-auto mb-4 flex items-center md:mx-0 md:mb-2 lg:mb-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke="currentColor" class="mr-2 h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Best quality
+                                    </p>
+
+                                    <p class="mx-auto mb-2 flex items-center md:mx-0 lg:mb-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke="currentColor" class="mr-2 h-5 w-5">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Best experience
+                                    </p>
+                                </div>
+
+                                <p class="mb-0 text-neutral-500 dark:text-neutral-300">
+                                    In ac turpis justo. Vivamus auctor quam vitae odio feugiat
+                                    pulvinar. Sed semper ligula sed lorem tincidunt dignissim. Name
+                                    sed cursus lectus. Proin non rutrum magna. Proin gravida,
+                                    justo et imperdiet tristique, turpis nisi viverra est, nec
+                                    posuere ex arcu sit amet erat. Sed a dictum sem. Duis pretium
+                                    condimentum nulla, ut aliquet erat auctor sed. Aenean
+                                    facilisis neque id ligula maximus scelerisque. Nunc sed velit
+                                    rhoncus, interdum dolor at, lacinia lacus. Proin eleifend
+                                    viverra posuere. Ut commodo risus lacus, ac scelerisque quam
+                                    aliquam dictum. Etiam dignissim pulvinar eros eget auctor.
+                                    Quisque congue turpis quis libero ullamcorper imperdiet.
+                                    Vivamus a orci maximus, dignissim ligula a, congue dui. Morbi
+                                    et lectus sit amet neque luctus viverra.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <img src="https://mdbcdn.b-cdn.net/img/new/ecommerce/vertical/117.jpg"
+                                class="w-full rounded-lg shadow-lg dark:shadow-black/20" alt="image" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Jumbotron -->
+            </section>
+            <!-- Section: Design Block -->
+        </div>
+        <!-- Container for demo purpose -->
+        <!-- Container for demo purpose -->
+        <div class="container my-24 mx-auto md:px-6">
+            <!-- Section: Design Block -->
+            <section class="mb-32 text-center lg:text-left">
+                <div
+                    class="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                    <div class="flex flex-wrap items-center">
+                        <div class="block w-full shrink-0 grow-0 basis-auto lg:flex lg:w-6/12 xl:w-4/12">
+                            <img src="https://tecdn.b-cdn.net/img/new/ecommerce/vertical/086.jpg"
+                                alt="Trendy Pants and Shoes"
+                                class="w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg" />
+                        </div>
+                        <div class="w-full shrink-0 grow-0 basis-auto lg:w-6/12 xl:w-8/12">
+                            <div class="px-6 py-12 md:px-12">
+                                <h2 class="display-5 mb-6 text-4xl font-bold text-primary dark:text-primary-400">
+                                    Why is it so great?
+                                </h2>
+                                <p class="mb-12 text-neutral-500 dark:text-neutral-300">
+                                    Nunc tincidunt vulputate elit. Mauris various purus malesuada
+                                    neque iaculis malesuada. Aenean gravida magna orci, non
+                                    efficitur est porta id. Donec magna diam.
+                                </p>
+
+                                <div class="grid md:grid-cols-3 lg:gap-x-12">
+                                    <div class="mb-12 md:mb-0">
+                                        <h2 class="mb-4 text-3xl font-bold text-primary dark:text-primary-400">
+                                            1000
+                                        </h2>
+                                        <h5 class="mb-0 text-lg font-medium text-neutral-500 dark:text-neutral-300">
+                                            Happy customers
+                                        </h5>
+                                    </div>
+
+                                    <div class="mb-12 md:mb-0">
+                                        <h2 class="mb-4 text-3xl font-bold text-primary dark:text-primary-400">
+                                            70%
+                                        </h2>
+                                        <h5 class="mb-0 text-lg font-medium text-neutral-500 dark:text-neutral-300">
+                                            Growth
+                                        </h5>
+                                    </div>
+
+                                    <div class="">
+                                        <h2 class="mb-4 text-3xl font-bold text-primary dark:text-primary-400">
+                                            49
+                                        </h2>
+                                        <h5 class="mb-0 text-lg font-medium text-neutral-500 dark:text-neutral-300">
+                                            Projects
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Design Block -->
+        </div>
+        <!-- Container for demo purpose -->
+        <!-- Container for demo purpose -->
+        <div class="container my-24 mx-auto md:px-6">
+            <!-- Section: Design Block -->
+            <section class="mb-32">
+                <div
+                    class="relative overflow-hidden bg-cover bg-no-repeat bg-[50%] bg-[url('https://mdbcdn.b-cdn.net/img/new/textures/full/66.jpg')] h-[300px]">
+                </div>
+                <div class="container px-6 md:px-12">
+                    <div
+                        class="block rounded-lg bg-[hsla(0,0%,100%,0.7)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:py-16 md:px-12 mt-[-100px] backdrop-blur-[30px]">
+                        <div class="flex flex-wrap justify-center text-center lg:text-left">
+                            <div class="w-full shrink-0 grow-0 basis-auto md:px-6 xl:w-10/12">
+                                <div class="grid items-center gap-x-6 lg:grid-cols-2">
+                                    <div class="mb-10 lg:mb-0">
+                                        <h2 class="text-3xl font-bold">
+                                            Do not miss any updates.
+                                            <br />
+                                            <span class="text-primary dark:text-primary-400">Subscribe to the
+                                                newsletter</span>
+                                        </h2>
+                                    </div>
+
+                                    <div class="mb-6 flex-row md:mb-0 md:flex">
+                                        <div class="relative mb-3 w-full md:mr-3 md:mb-0" data-te-input-wrapper-init>
+                                            <input type="text"
+                                                class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                id="exampleFormControlInput2" placeholder="Enter your email" />
+                                            <label for="exampleFormControlInput2"
+                                                class="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Enter
+                                                your email
+                                            </label>
+                                        </div>
+                                        <button type="submit"
+                                            class="inline-block rounded bg-primary px-7 pt-3 pb-2.5 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                                            data-te-ripple-init data-te-ripple-color="light">
+                                            Subscribe
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Design Block -->
+        </div>
+        <!-- Container for demo purpose -->
+        <!-- Container for demo purpose -->
+        <div class="container my-24 mx-auto md:px-6">
+            <!-- Section: Design Block -->
+            <section class="mb-32 text-center">
+                <h2 class="mb-16 text-3xl font-bold">
+                    Trusted by <u class="">2,000,000+</u> users
+                </h2>
+
+                <div class="grid items-center gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    <div class="mb-12 lg:mb-0">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/landing-page/2.png"
+                            class="px-6 dark:brightness-150 md:px-12" alt="Nasa - logo" />
+                    </div>
+
+                    <div class="mb-12 lg:mb-0">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/landing-page/1.png"
+                            class="px-6 dark:brightness-150 md:px-12" alt="Amazon - logo" />
+                    </div>
+
+                    <div class="mb-12 lg:mb-0">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/landing-page/3.png"
+                            class="px-6 dark:brightness-150 md:px-12" alt="Nike - logo" />
+                    </div>
+
+                    <div class="mb-12 lg:mb-0">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/landing-page/4.png"
+                            class="px-6 dark:brightness-150 md:px-12" alt="Ikea - logo" />
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Design Block -->
+        </div>
+        <!-- Container for demo purpose -->
+        {% include 'layouts/footer.html' %}
     </div>
 </body>
-<script>
-    Vue.filter('formatNumber', function (value) {
-        if (value < 1000) {
-            return String(value);
-        } else if (value < 1000000) {
-            return (value / 1000).toFixed(1) + 'K';
-        } else if (value < 1000000000) {
-            return (value / 1000000).toFixed(1) + 'M';
-        } else {
-            return (value / 1000000000).toFixed(1) + 'B';
-        }
-    });
-    Vue.config.devtools = true
-    new Vue({
-        el: '#app',
-        delimiters: ['${', '}'],
-        data: {
-            data: {
-                edges: []
-            },
-            loading: false,
-        },
-        created() {
-            this.fetchData();
-            window.addEventListener('scroll', this.handleScroll);
-        },
-        destroyed() {
-            window.removeEventListener('scroll', this.handleScroll);
-        },
-        methods: {
-            fetchData() {
-                this.loading = true;
-                const url = `http://localhost:8000/api/fukra_admin`;
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        this.data = data
-                        this.loading = false;
-                    })
-                    .catch(error => {
-                        console.error('Error fetching data:', error);
-                        this.loading = false;
-                    });
-            },
-            fetchPaginatedData() {
-                this.loading = true;
-                const url = `http://localhost:8000/pagination?document_id=17991233890457762&user_id=${this?.data?.id}&end_cursor=${this?.data?.page_info?.end_cursor}`;
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        let upcoming_edges = data?.data?.data?.user?.edge_owner_to_timeline_media?.edges
-                        this.data.edges = this.data.edges.concat(upcoming_edges);
-                        this.data.page_info = data?.data?.data?.user?.edge_owner_to_timeline_media?.page_info
-                        this.loading = false;
-                    })
-                    .catch(error => {
-                        console.error('Error fetching data:', error);
-                        this.loading = false;
-                    });
-            },
-            handleScroll() {
-                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 && !this.loading) {
-                    this.fetchPaginatedData();
-                }
-            }
-        }
-    })
-</script>
 
 </html>

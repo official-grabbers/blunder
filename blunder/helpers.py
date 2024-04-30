@@ -3,8 +3,19 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.views.generic import TemplateView, View
 from django.http import HttpResponseRedirect
+from blunder.constants import GlobalPaths, StaticFiles
 import requests
 import os
+
+
+class IndexViewHelper(TemplateView):
+    template_name = "index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tailwind'] = GlobalPaths.FIREBASE_STROAGE_URL + StaticFiles.TAILWIND_CSS
+        context['banner'] = GlobalPaths.FIREBASE_STROAGE_URL + StaticFiles.INDEX_BANNER_IMAGE
+        return context
 
 
 class InstagramAuthViewHelper(View):
