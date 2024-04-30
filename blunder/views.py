@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from blunder.helpers import TestAPIHelper, PaginationAPIHandler, ExampleViewHandler, InstagramAuthViewHelper
+from blunder.helpers import TestAPIHelper, PaginationAPIHandler, ExampleViewHandler, InstagramAuthViewHelper, FacebookAuthViewHelper
 
 
 # Create your views here.
@@ -8,6 +8,10 @@ class ExampleView(ExampleViewHandler):
 
 
 class InstagramAuthView(InstagramAuthViewHelper):
+    pass
+
+
+class FacebookAuthView(FacebookAuthViewHelper):
     pass
 
 

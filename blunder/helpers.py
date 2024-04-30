@@ -20,6 +20,19 @@ class InstagramAuthViewHelper(View):
         return HttpResponseRedirect(authorization_url)
 
 
+class FacebookAuthViewHelper(View):
+    def get(self, request, *args, **kwargs):
+        facebook_auth_url = "https://www.facebook.com/v19.0/dialog/oauth"
+
+        client_id = os.environ.get('BUSINESS_CLIENT_ID')
+        redirect_uri = os.environ.get('BUSINESS_REDIRECT_URL')
+        state = os.environ.get('BUSINESS_STATE')
+        config_id = os.environ.get('BUSINESS_CONFIG_ID')
+
+        authorization_url = f"{facebook_auth_url}?client_id={client_id}&redirect_uri={redirect_uri}&config_id={config_id}&state={state}"
+        return HttpResponseRedirect(authorization_url)
+
+
 class ExampleViewHandler(TemplateView):
     template_name = "example.html"
 

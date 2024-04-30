@@ -8,3 +8,18 @@ https://graph.instagram.com/access_token
   ?grant_type=ig_exchange_token
   &client_secret=130a60614b925585daf8c1ecc6ad9a60
   &access_token=IGQWROZAlBQZAWh0TVdJU05FNmVZAZA1Brc0pnVXEzbFltUjZAjRC11UU5BN0h1aGlDeE1oX1FGLUJVX3pybXQzQldCazBvNDFULWR2aHJDcktlVUFCRTI4YmtZAR3F0THdhRTVMNG8xY1NtdkZAkU2poMDBRMDZADVEE2cnpsX2owMi1DRUo5QQZDZD
+
+
+https://www.facebook.com/v19.0/dialog/oauth?
+  client_id=376134074736542
+  &redirect_uri=https://localhost:5000/example/
+  &state=state123abc&config_id=1116227469495896
+
+reverted with
+AQBANiipmC7ytF3eAn2wuohRZ4BAIE308C1beIxgMfsy7o-t5ihixxUMf4wAbd0etfD73ZR1SsN8atK1y8h3y-FZ09Bi-prRGi1--r5uRL8tGH-OEl5rkhju4aMxrChLX-4mzn4bItJ4jsUHQEjuo_V1SecZBNq1PpPeyVvdCbH21MHSzqLmrsJMVOtA4ZsZxIuGqcHUNQFJ8jkfOC5cFemfUEvJixgThvdBmjZxpw4BPf9Kgb4GM8WDBFGZRq_rCWjtd72NvYhdNydzuMmFeltAo1a-3yocPn-mqkzuA6M2Fx2OtMFQIJmKvzncxNDb66mVLJ_r3dO_5bLTNU35egkRaMvit4eop9UgMdFOIo8BDd65iWEp1F_1Q1KJevZQTbw
+
+https://graph.facebook.com/v19.0/oauth/access_token?
+   client_id={app-id}
+   &redirect_uri={redirect-uri}
+   &client_secret={app-secret}
+   &code={code-parameter}
